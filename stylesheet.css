@@ -1,5 +1,5 @@
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Courier New", monospace;
 }
 
 .sidenav {
@@ -9,9 +9,10 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #dc267f;
   overflow-x: hidden;
   padding-top: 20px;
+  font-family: "Courier New", monospace;
 }
 
 .sidenav a {
@@ -27,7 +28,8 @@ body {
 }
 
 .main {
-  margin-left: 200px; /* Same as the width of the sidenav */
+  margin-left: 200px;
+  font-family: "Courier New", monospace;
 }
 
 @media screen and (max-height: 450px) {
@@ -46,6 +48,16 @@ body {
   text-decoration: none;
   font-size: 15px;
   color: #818181;
+  font-family: "Courier New", monospace;
+}
+
+.settingsBtn {
+  border: none;
+  padding: 12px 12px;
+  cursor: pointer;
+  background-color: transparent;
+  position: fixed;
+  bottom: 0;
 }
 
 /* The popup form - hidden by default */
@@ -58,33 +70,54 @@ body {
   transform: translate(-50%, -50%);
   width: 50%;
   border: 3px solid #f1f1f1;
-  z-index: 9;
+  z-index: 1;
+  font-family: "Courier New", monospace;
+  font-size: 20px;
 }
 
 /* Add styles to the form container */
 .form-container {
-  max-width: 300px;
-  padding: 10px;
+  border-radius: 5px;
+  max-width: 100%;
+  padding: 15px;
   background-color: white;
 }
 
 /* Full-width input fields */
-.form-container input[type=text], .form-container input[type=password] {
+.form-container input[type=text],
+.form-container input[type=time],
+.form-container input[type=date],
+.form-container select {
+  border-radius: 5px;
   width: 100%;
   padding: 15px;
-  margin: 5px 0 22px 0;
+  margin: 5px 0 17px 0;
   border: none;
   background: #f1f1f1;
+  color: #111111;
+  font-family: "Courier New", monospace;
+  font-size: 20px;
 }
 
+.form-container input[type=time],
+.form-container input[type=date],
+.form-container select,
+.img-upload {
+  cursor: pointer;
+}
+
+
 /* When the inputs get focus, do something */
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+.form-container input[type=text]:focus,
+.form-container input[type=date]:focus,
+.form-container input[type=time]:focus {
   background-color: #ddd;
   outline: none;
 }
 
 /* Set a style for the submit/login button */
 .form-container .btn {
+  border-radius: 5px;
   background-color: #04AA6D;
   color: white;
   padding: 16px 20px;
@@ -93,6 +126,8 @@ body {
   width: 100%;
   margin-bottom:10px;
   opacity: 0.8;
+  font-family: "Courier New", monospace;
+  font-size: 20px;
 }
 
 /* Add a red background color to the cancel button */
@@ -103,4 +138,13 @@ body {
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding: 10px;
 }
