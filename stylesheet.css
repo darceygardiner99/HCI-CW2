@@ -50,10 +50,13 @@ body {
 
 /* The popup form - hidden by default */
 .faultForm {
+  border-radius: 5px;
   display: none;
   position: fixed;
-  bottom: 0;
-  right: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
