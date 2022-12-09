@@ -2,6 +2,54 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+.searchBar {
+  margin: auto;
+  display: inline-block;
+  height: 100%;
+  width: 20%;
+  position: fixed; /* prevents scrolling */
+  z-index: 1; /* keeps forward */
+  left: 0;
+  background-color: #101010;
+  color: #ffffff;
+}
+
+.searchBar span {
+  display: inline;
+}
+
+.searchBar h2 {
+  font-size: 32pt;
+  display: inline-block;
+  margin-block-start: 4%;
+  margin-block-end: auto;
+}
+
+.searchBar img {
+  display: inline;
+  float: right;
+}
+
+.searchBar label {
+  font-size: 20pt;
+  font-weight: lighter;
+  text-align: right;
+}
+
+.searchBar input {
+  font-size: 15pt;
+  text-align: left;
+  float: right;
+  margin-right: 4%;
+}
+
+.searchBar button {
+  background-color: #d3e1e1;
+  color: #101010;
+  padding: 15px 32px;
+
+}
+
 .sidenav {
   height: 100%;
   width: 0;
@@ -9,7 +57,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #101010FF;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
