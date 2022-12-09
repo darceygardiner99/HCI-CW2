@@ -2,6 +2,7 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+/*FaultSearch*/
 .searchBar {
   margin: auto;
   display: inline-block;
@@ -47,9 +48,40 @@ body {
   background-color: #d3e1e1;
   color: #101010;
   padding: 15px 32px;
-
+  font-size: 12pt;
 }
 
+.mainWindow {
+  margin: auto;
+  display: inline-block;
+  height: 100%;
+  width: 80%;
+  z-index: 1; /* keeps forward */
+  right: 0;
+  float: right;
+  background-color: #ffffff;
+  color: #101010;
+}
+
+.mainWindow td {
+  width: 25%;
+  font-size: 18pt;
+  text-align: left;
+  border-bottom: 2px solid black;
+}
+
+.mainWindow img {
+  width: 80%;
+}
+
+.buttonColumn {
+  min-width: 0;
+  max-width: 5%;
+  vertical-align: bottom;
+}
+
+
+/*SideNav*/
 .sidenav {
   height: 100%;
   width: 0;
