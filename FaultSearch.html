@@ -12,16 +12,48 @@
     <div class="searchBar">
         <span><h2>Search</h2>                           <img src="resources/search.png" alt="Search Icon"></span><br><br>
 
-        <label for="buildingInput">Building: </label>   <input type="text" id="buildingInput" name="buildingInput"><br>
-        <label for="roomInput">Room: </label>           <input type="text" id="roomInput" name="roomInput"><br>
-        <label for="floorInput">Floor: </label>         <input type="text" id="floorInput" name="floorInput"><br>
-        <label for="faultIdInput">Fault ID: </label>    <input type="text" id="faultIdInput" name="faultIdInput"><br>
-        <label for="priorityInput">Priority: </label>   <input type="text" id="priorityInput" name="priorityInput"><br>
-        <label for="typeInput">Type: </label>           <input type="text" id="typeInput" name="typeInput"><br>
-        <label for="dateInput">Date: </label>           <input type="text" id="dateInput" name="dateInput"><br>
-        <br>
-        <button>Search</button><button onclick="clearSearchForm">Clear</button>
+        <form name="searchForm">
+            <label for="buildingInput">Building: </label>   <input type="text" id="buildingInput" name="buildingInput" list="buildingList" onchange=roomSuggestion()><br>
+            <label for="roomInput">Room: </label>           <input type="text" id="roomInput" name="roomInput" list="roomList"><br>
+            <label for="floorInput">Floor: </label>         <input type="text" id="floorInput" name="floorInput"><br>
+            <label for="faultIdInput">Fault ID: </label>    <input type="text" id="faultIdInput" name="faultIdInput"><br>
+            <label for="priorityInput">Priority: </label>   <input type="text" id="priorityInput" name="priorityInput"><br>
+            <label for="typeInput">Type: </label>           <input type="text" id="typeInput" name="typeInput"><br>
+            <label for="dateInput">Date: </label>           <input type="text" id="dateInput" name="dateInput"><br>
+            <br>
+            <button>Search</button><button onclick=clearSearchForm()>Clear</button>
+        </form>
     </div>
+
+    <!--  Lists!  -->
+    <datalist id="buildingList">
+        <option value="ARTS 1 - Arts Building 1">
+        <option value="ARTS 2 - Arts Building 2">
+        <option value="BDS - Blackdale Building">
+        <option value="C.HALL - Congregation Hall">
+        <option value="MUS - Music Centre">
+        <option value="DRA - Drama Studio">
+        <option value="ECB - Edith Cavell Building">
+        <option value="EFRY - Elizabeth Fry Building">
+        <option value="EH - Earlham Hall">
+        <option value="ITCS - Information Technology and Computing Services">
+        <option value="JSC - Julian Study Centre">
+        <option value="LIB - The Library">
+        <option value="LSB - Lawrence Stenhouse Building">
+        <option value="LT - Lecture Theatre Block">
+        <option value="NEWSCI - New Science Building">
+        <option value="QUEENS - Queens Building">
+        <option value="REG - The Registry and Council Chamber">
+        <option value="SP - Sportspark">
+        <option value="TEC - The Enterprise Centre">
+        <option value="TPSC - Thomas Paine Study Centre">
+        <option value="UH - Union House">
+        <option value="ZICER - Zuckerman Institute for Connective Environmental Research">
+        <option value="CCEN - Careers Centre">
+        <option value="SCVA - Sainsbury Centre for Visual Arts">
+    </datalist>
+
+    <datalist id="roomList"></datalist>
 
     <!-- Main Window / Results Controls -->
     <div class="mainWindow">
