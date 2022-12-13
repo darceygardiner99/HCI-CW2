@@ -2,6 +2,122 @@ body {
   font-family: "Courier New", monospace;
 }
 
+/*FaultSearch*/
+.searchBar {
+  margin: auto;
+  display: inline-block;
+  height: 100%;
+  width: 20%;
+  position: fixed; /* prevents scrolling */
+  z-index: 1; /* keeps forward */
+  left: 0;
+  background-color: #101010;
+  color: #ffffff;
+}
+
+.searchBar span {
+  display: inline;
+}
+
+.searchBar h2 {
+  font-size: 32pt;
+  display: inline-block;
+  margin-block-start: 4%;
+  margin-block-end: auto;
+}
+
+.searchBar img {
+  display: inline;
+  float: right;
+}
+
+.searchBar label {
+  font-size: 20pt;
+  font-weight: lighter;
+  text-align: right;
+}
+
+.searchBar input {
+  font-size: 15pt;
+  text-align: left;
+  float: right;
+  margin-right: 4%;
+}
+
+.searchBar button {
+  background-color: #d3e1e1;
+  color: #101010;
+  padding: 15px 32px;
+  font-size: 12pt;
+}
+
+.mainWindow {
+  margin: auto;
+  display: inline-block;
+  height: 100%;
+  width: 80%;
+  z-index: 1; /* keeps forward */
+  right: 0;
+  float: right;
+  background-color: #ffffff;
+  color: #101010;
+}
+
+.mainWindow table {
+  table-layout: auto;
+  width: 100%;
+}
+
+.listing td {
+  /*line-height: 250%;*/
+}
+
+.listing {
+  min-width: 80%;
+}
+
+.mainWindow td {
+  width: 30%;
+  font-size: 18pt;
+  text-align: left;
+  border-bottom: 2px solid black;
+}
+
+.mainWindow img {
+  max-width: 80%;
+}
+
+.buttonColumn {
+  min-width: 0;
+  max-width: 5%;
+  vertical-align: bottom;
+  line-height: 150%;
+}
+
+.popupButton {
+  background-color: #555;
+  color: white;
+  padding: 8px 10px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9;
+  border: 1px solid black;
+  right: 0;
+  top: 5%;
+}
+
+.popupForm {
+  max-width: 300px;
+  padding: 10px;
+}
+
+
+
+
+/*SideNav*/
 .sidenav {
   height: 100%;
   width: 200px;
