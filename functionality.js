@@ -36,10 +36,12 @@ function searchDisplay(actorType) {
   Array.from(inputs).forEach(input => {
     input.style.display = 'inline';
     document.getElementById(input.id+"Label").style.display = 'inline';
+    document.getElementById(input.id+"Break").style.display = 'inline';
     actor.forEach(actorField => {
       if (actorField === input.id) {
         input.style.display = 'none';
         document.getElementById(input.id+"Label").style.display = 'none';
+        document.getElementById(input.id+"Break").style.display = 'none';
       }
     })
   });
@@ -49,12 +51,52 @@ function dropDown() {
   const row = document.getElementById("firstDetails");
   if (row.style.display !== 'none') {
     row.style.display = 'none';
+    row.style.width = '80%';
   }
   else {
-    row.style.display = 'inline-block';
+    row.style.display = 'table-row';
   }
 }
+function assignForm(event) {
+  const form = document.getElementById('assignPopup');
 
+  var mainEvent = subEvent ? subEvent : window.event;
+
+  alert("This button click occurred at: X(" +
+  mainEvent.screenX + ") and Y(" + mainEvent.screenY + ")");
+
+  if (form.style.display === 'block') {
+    form.style.display = 'none';
+  }
+  else {
+    form.style.display = 'block';
+  }
+}
+function assignJob() {
+  const input = document.getElementById('assignPopup');
+  const output = document.getElementById('assigned1');
+  output.innerHTML = "Assigned To: " + input.value;
+}
+
+function editJob() {
+
+}
+
+function updateForm() {
+  const form = document.getElementById('updatePopup');
+  if (form.style.display === 'block') {
+    form.style.display = 'none';
+  }
+  else {
+    form.style.display = 'block';
+  }
+}
+function updateJob() {
+  const input = document.getElementById('updateField');
+  const output = document.getElementById('updates1');
+
+  output.innerHTML = output.innerHTML + "<br>" + new Date().toLocaleDateString() + ": " + input.value;
+}
 
 
 //FaultSearch

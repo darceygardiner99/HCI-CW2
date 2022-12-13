@@ -63,22 +63,58 @@ body {
   color: #101010;
 }
 
+.mainWindow table {
+  table-layout: auto;
+  width: 100%;
+}
+
+.listing td {
+  /*line-height: 250%;*/
+}
+
+.listing {
+  min-width: 80%;
+}
+
 .mainWindow td {
-  width: 25%;
+  width: 30%;
   font-size: 18pt;
   text-align: left;
   border-bottom: 2px solid black;
 }
 
 .mainWindow img {
-  width: 80%;
+  max-width: 80%;
 }
 
 .buttonColumn {
   min-width: 0;
   max-width: 5%;
   vertical-align: bottom;
+  line-height: 150%;
 }
+
+.popupButton {
+  background-color: #555;
+  color: white;
+  padding: 8px 10px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9;
+  border: 1px solid black;
+  right: 0;
+  top: 5%;
+}
+
+.popupForm {
+  max-width: 300px;
+  padding: 10px;
+}
+
+
 
 
 /*SideNav*/
