@@ -17,15 +17,81 @@
             <div class="formDiv"><label for="roomInput" id="roomInputLabel">Room: </label>               <input type="text" id="roomInput" name="roomInput" list="roomList"></div><br id="roomInputBreak">
             <div class="formDiv"><label for="floorInput" id="floorInputLabel">Floor: </label>            <input type="text" id="floorInput" name="floorInput"></div><br id="floorInputBreak">
             <div class="formDiv"><label for="faultIdInput" id="faultIdInputLabel">Fault ID: </label>     <input type="text" id="faultIdInput" name="faultIdInput"></div><br id="faultIdInputBreak">
-            <div class="formDiv"><label for="priorityInput" id="priorityInputLabel">Priority: </label>   <input type="text" id="priorityInput" name="priorityInput"></div><br id="priorityInputBreak">
-            <div class="formDiv"><label for="typeInput" id="typeInputLabel">Type: </label>               <input type="text" id="typeInput" name="typeInput"></div><br id="typeInputBreak">
-            <div class="formDiv"><label for="dateInput" id="dateInputLabel">Date: </label>               <input type="text" id="dateInput" name="dateInput"></div><br id="dateInputBreak">
+            <div class="formDiv"><label for="statusInput" id="statusInputLabel">Status: </label>         <input type="text" id="statusInput" name="statusInput" list="statusList"></div><br id="statusInputBreak">
+            <div class="formDiv"><label for="typeInput" id="typeInputLabel">Type: </label>               <input type="text" id="typeInput" name="typeInput" list="typeList"></div><br id="typeInputBreak">
+            <div class="formDiv"><label for="dateInput" id="dateInputLabel">Date: </label>               <input type="date" id="dateInput" name="dateInput"></div><br id="dateInputBreak">
             <br>
             <button id="searchButton">Search</button><button id="clearButton" onclick=clearSearchForm()>Clear</button>
         </form>
         <br><br>
         <button onclick="swapDisplay()">Swap view</button>
     </div>
+
+    <!-- Main Window / Results Controls -->
+    <div class="mainWindow">
+        <table>
+            <tr id="1Listing" class="listing">
+                <td><img src="resources/chairbroke.jpg" alt="broken chair"></td>
+                <td><p>Fault ID: 354684</p><br><p>Building: Julian Study Centre</p><br><p>Room: 3.02</p></td>
+                <td><p>Fault Type: Furniture</p><br><p>Date: 01/11/2022</p><br><p id="1assigned">Assigned To: Kirsten Fickstings</p><br><p>Priority: Low Priority</p></td>
+                <td class="buttonColumn">
+                    <button onclick="editForm()" id="1editButton" class="popupButton">Edit Job</button><br>
+                    <button onclick="assignForm(1)" id="1assignButton" class="popupButton">Assign Job</button><br>
+                    <button onclick="updateForm(1)" id="1updateButton" class="popupButton">Update Job</button><br>
+                    <button onclick="dropDown(1)" id="1dropDownButton" class="popupButton">DropDown</button><br>
+                </td>
+            </tr>
+            <tr id="1Details" class="details">
+                <td><img src="resources/map.PNG" alt="Map showing JSC"></td>
+                <td><p>Details: <br>
+                    Chair needs two new wheels fitting, awaiting delivery.</p></td>
+                <td><p id="updates1">Updates: <br>
+                    02/11/2022: new wheels ordered. <br>
+                    05/11/2022: wheels fitted.</p></td>
+            </tr>
+
+            <tr id="2Listing" class="listing">
+                <td><img src="resources/waterstain.jpg" alt="broken chair"></td>
+                <td><p>Fault ID: 354689</p><br><p>Building: Thomas Paine Study Centre</p><br><p>Room: 1.01</p></td>
+                <td><p>Fault Type: Plumbing</p><br><p>Date: 08/11/2022</p><br><p id="2assigned">Assigned To: Kirsten Fickstings</p><br><p>Priority: High Priority</p></td>
+                <td class="buttonColumn">
+                    <button onclick="editForm()" id="2editButton" class="popupButton">Edit Job</button><br>
+                    <button onclick="assignForm(2)" id="2assignButton" class="popupButton">Assign Job</button><br>
+                    <button onclick="updateForm(2)" id="2updateButton" class="popupButton">Update Job</button><br>
+                    <button onclick="dropDown(2)" id="2dropDownButton" class="popupButton">DropDown</button><br>
+                </td>
+            </tr>
+            <tr id="2Details" class="details">
+                <td><img src="resources/map.PNG" alt="Map showing JSC"></td>
+                <td><p>Details: <br>
+                    Leak in ceiling.</p></td>
+                <td><p id="updates2">Updates: <br>
+                    10/11/2022: new pipe fixture needed, awaiting delivery.<br>
+            </tr>
+        </table>
+
+        <div class="popup" id="assignPopup">
+            <form class="popupForm" id="assignForm" onsubmit="return false">
+                <p>Assign job!</p>
+                <label for="assignField"></label><textarea type="text" placeholder="Enter name..." id="assignField" required></textarea>
+                <br><br>
+                <button onclick="assignJob()">Assign</button>
+            </form>
+        </div>
+        <div class="popup" id="updatePopup">
+            <form class="popupForm" id="updateForm" onsubmit="return false">
+                <p>Update job!</p>
+                <label for="updateField"></label><textarea type="text" placeholder="Enter update..." id="updateField" cols="5" required></textarea>
+                <br><br>
+                <button onclick="updateJob()">Update</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
 
     <!--  Lists!  -->
     <datalist id="buildingList">
@@ -57,54 +123,19 @@
 
     <datalist id="roomList"></datalist>
 
-    <!-- Main Window / Results Controls -->
-    <div class="mainWindow">
-        <table>
-            <tr id="firstListing" class="listing">
-                <td><img src="resources/chairbroke.jpg" alt="broken chair"></td>
-                <td><p>Fault ID: 354684</p><br><p>Building: Julian Study Centre</p><br><p>Room: 3.02</p></td>
-                <td><p>Fault Type: Furniture</p><br><p>Date: 01/11/2022</p><br><p id="assigned1">Assigned To: Kirsten Fickstings</p></td>
-                <td class="buttonColumn">
-                    <button onclick="assignForm()" id="assignButton" class="popupButton">Assign Job</button><br>
-                    <button onclick="editForm()" id="editButton" class="popupButton">Edit Job</button><br>
-                    <button onclick="updateForm()" id="updateButton" class="popupButton">Update Job</button><br>
-                    <button onclick="dropDown()">DropDown</button><br>
-                </td>
-            </tr>
-            <tr id="firstDetails" class="details">
-                <td><img src="resources/map.PNG" alt="Map showing JSC"></td>
-                <td><p>Details: <br>
-                    Chair needs two new wheels fitting, awaiting delivery.</p></td>
-                <td><p id="updates1">Updates: <br>
-                    02/11/2022: new wheels ordered. <br>
-                    05/11/2022: wheels fitted.</p></td>
-            </tr>
+    <datalist id="statusList">
+        <option value="Low Priority">
+        <option value="Medium Priority">
+        <option value="High Priority">
+        <option value="Complete">
+    </datalist>
 
-            <tr id="secondListing" class="listing">
-                <td><img src="resources/chairbroke.jpg" alt="broken chair"></td>
-                <td>Fault ID: 354685<br>Building: Julian Study Centre<br>Room: 3.02</td>
-                <td>Fault Type: Furniture<br>Date: 01/11/2022<br>Assigned To: Kirsten Fickstings</td>
-                <td class="buttonColumn">
-                    <button></button>
-                    <button>DropDown</button>
-                </td>
-            </tr>
-        </table>
-
-        <div class="popup" id="assignPopup">
-            <form class="popupForm" id="assignForm" onsubmit="return false">
-                <p>Assign job!</p>
-                <input type="text" placeholder="Enter name..." id="assignField" required>
-                <button onclick="assignJob()">Assign</button>
-            </form>
-        </div>
-        <div class="popup" id="updatePopup">
-            <form class="popupForm" id="updateForm" onsubmit="return false">
-                <p>Update job!</p>
-                <input type="text" placeholder="Enter update..." id="updateField" required>
-                <button onclick="updateJob()">Update</button>
-            </form>
-        </div>
-    </div>
+    <datalist id="typeList">
+        <option value="Furniture">
+        <option value="Electrical">
+        <option value="Plumbing">
+        <option value="Infrastructure">
+        <option value="Other">
+    </datalist>
 </body>
 </html>

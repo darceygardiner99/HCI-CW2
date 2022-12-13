@@ -1,13 +1,15 @@
 const NEWSCI = ['0.01', '0.02', '0.03', '0.04', '0.05', '0.06', '0.07', '0.08', '0.09'];
 const TPSC = ['0.01', '0.02', '0.03', '0.04', '0.05', '0.06', '0.07', '0.08', '0.09'];
-const JSC = ['0.01', '0.02', '0.03', '0.04', '0.05', '0.06', '0.07', '0.08', '0.09'];
+const JSC = ['1.01', '1.02', '2.03', '2.06', '2.08'];
 
-const STAFF = ['floorInput', 'faultIdInput'];
-const STUDENT = ['floorInput', 'faultIdInput'];
-const ENGINEER = [];
+const STAFF = ['floorInput', 'faultIdInput', 'assignButton', 'editButton', 'updateButton'];
+const STUDENT = ['floorInput', 'faultIdInput', 'assignButton', 'editButton', 'updateButton'];
+const ENGINEER = ['editButton', 'assignButton'];
 const ADMIN = [];
 let actors = [STAFF, STUDENT, ENGINEER, ADMIN];
 let currentActor = 0;
+
+let currentIndex = 0;
 
 
 function openNav() {
@@ -31,34 +33,50 @@ function swapDisplay() {
 
 function searchDisplay(actorType) {
   const inputs = document.getElementsByTagName("input");
+  const buttons = document.getElementsByTagName("button");
   const actor = actors.at(actorType);
   Array.from(inputs).forEach(input => {
-    input.style.display = 'inline';
-    document.getElementById(input.id+"Label").style.display = 'inline';
-    document.getElementById(input.id+"Break").style.display = 'inline';
+    input.style.display = 'block';
+    document.getElementById(input.id+"Label").style.display = 'block';
+    document.getElementById(input.id+"Break").style.display = 'block';
     actor.forEach(actorField => {
-      if (actorField === input.id) {
+      if (input.id.includes(actorField)) {
         input.style.display = 'none';
         document.getElementById(input.id+"Label").style.display = 'none';
         document.getElementById(input.id+"Break").style.display = 'none';
       }
     })
   });
+  Array.from(buttons).forEach(button => {
+    button.style.display = 'inline-block';
+    actor.forEach(actorButton => {
+      if (button.id.includes(actorButton)) {
+        button.style.display = 'none';
+      }
+    })
+  });
 }
 
-function dropDown() {
-  const row = document.getElementById("firstDetails");
-  if (row.style.display !== 'none') {
+function dropDown(index) {
+  currentIndex = index;
+  const row = document.getElementById(currentIndex + "Details");
+  if (row.style.display === 'none') {
+    row.style.display = 'table-row';
+  }
+  else {
     row.style.display = 'none';
     row.style.width = '80%';
   }
-  else {
-    row.style.display = 'table-row';
-  }
 }
-function assignForm() {
+
+function editJob() {
+  console.log("Function editJob(): NOT IMPLEMENTED YET!")
+}
+
+function assignForm(index) {
+  currentIndex = index;
   const form = document.getElementById('assignPopup');
-  const button = document.getElementById('assignButton')
+  const button = document.getElementById(index + 'assignButton')
   if (form.style.display === 'block') {
     form.style.display = 'none';
     button.innerHTML = "Assign Job";
@@ -73,18 +91,15 @@ function assignForm() {
   }
 }
 function assignJob() {
-  const input = document.getElementById('assignPopup');
-  const output = document.getElementById('assigned1');
+  const input = document.getElementById('assignField');
+  const output = document.getElementById(currentIndex + 'assigned');
   output.innerHTML = "Assigned To: " + input.value;
 }
 
-function editJob() {
-
-}
-
-function updateForm() {
+function updateForm(index) {
+  currentIndex = index;
   const form = document.getElementById('updatePopup');
-  const button = document.getElementById('updateButton')
+  const button = document.getElementById(index + 'updateButton')
   if (form.style.display === 'block') {
     form.style.display = 'none';
     button.innerHTML = "Update Job";
@@ -100,8 +115,7 @@ function updateForm() {
 }
 function updateJob() {
   const input = document.getElementById('updateField');
-  const output = document.getElementById('updates1');
-
+  const output = document.getElementById(index + 'updates');
   output.innerHTML = output.innerHTML + "<br>" + new Date().toLocaleDateString() + ": " + input.value;
 }
 

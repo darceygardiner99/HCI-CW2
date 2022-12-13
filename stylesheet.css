@@ -60,14 +60,6 @@ body {
   bottom: 0;
 }
 
-.searchBar button {
-  display: block;
-  background-color: #d3e1e1;
-  color: #101010;
-  padding: 15px 32px;
-  font-size: 12pt;
-}
-
 .mainWindow {
   margin: auto;
   display: inline-block;
@@ -93,6 +85,10 @@ body {
   min-width: 80%;
 }
 
+.details {
+  display: none;
+}
+
 .mainWindow td {
   width: 30%;
   font-size: 18pt;
@@ -108,23 +104,42 @@ body {
   min-width: 0;
   max-width: 5%;
   vertical-align: bottom;
-  line-height: 150%;
+  line-height: 100%;
 }
 
-.popupButton {
-  background-color: #555;
+button {
+  display: inline-block;
+  width: 125px;
+  height: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: dimgrey;
   color: white;
-  padding: 8px 10px;
+  padding: 15px 32px;
+  font-size: 12pt;
+  text-align: center;
+  vertical-align: center;
+  margin-bottom: 10px;
+}
+
+.popup button {
+  padding: 0 0;
+  width: 100px;
+  height: 40px;
 }
 
 .popup {
   display: none;
-  position: fixed;
   z-index: 9;
   border: 1px solid black;
-  right: 0;
-  top: 5%;
   background: white;
+  height: 200px;
+  width: 400px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
 }
 
 .popupForm {
@@ -132,7 +147,11 @@ body {
   padding: 10px;
 }
 
-
+.popup textarea {
+  cols: 5;
+  height: 40px;
+  width: 300px;
+}
 
 
 /*SideNav*/
