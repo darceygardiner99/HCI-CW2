@@ -5,7 +5,6 @@ body {
 /*FaultSearch*/
 .searchBar {
   margin: auto;
-  display: inline-block;
   height: 100%;
   width: 20%;
   position: fixed; /* prevents scrolling */
@@ -17,34 +16,52 @@ body {
 
 .searchBar span {
   display: inline;
+  overflow: hidden;
 }
 
 .searchBar h2 {
   font-size: 32pt;
-  display: inline-block;
+  display: inline;
   margin-block-start: 4%;
   margin-block-end: auto;
 }
 
 .searchBar img {
-  display: inline;
   float: right;
+}
+
+.searchBar form {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.formDiv {
+  float: left;
+  width: 100%;
 }
 
 .searchBar label {
+  display: block;
   font-size: 20pt;
   font-weight: lighter;
   text-align: right;
+  float: left;
 }
 
 .searchBar input {
+  display: block;
   font-size: 15pt;
   text-align: left;
+  max-width: 50%;
   float: right;
-  margin-right: 4%;
+  bottom: 0;
 }
 
 .searchBar button {
+  display: block;
   background-color: #d3e1e1;
   color: #101010;
   padding: 15px 32px;
@@ -107,6 +124,7 @@ body {
   border: 1px solid black;
   right: 0;
   top: 5%;
+  background: white;
 }
 
 .popupForm {

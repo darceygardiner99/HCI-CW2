@@ -2,7 +2,6 @@ const NEWSCI = ['0.01', '0.02', '0.03', '0.04', '0.05', '0.06', '0.07', '0.08', 
 const TPSC = ['0.01', '0.02', '0.03', '0.04', '0.05', '0.06', '0.07', '0.08', '0.09'];
 const JSC = ['0.01', '0.02', '0.03', '0.04', '0.05', '0.06', '0.07', '0.08', '0.09'];
 
-//const STAFF = ['buildingInput', 'roomInput', 'typeInput', 'dateInput', 'searchButton', 'clearButton'];
 const STAFF = ['floorInput', 'faultIdInput'];
 const STUDENT = ['floorInput', 'faultIdInput'];
 const ENGINEER = [];
@@ -57,19 +56,20 @@ function dropDown() {
     row.style.display = 'table-row';
   }
 }
-function assignForm(event) {
+function assignForm() {
   const form = document.getElementById('assignPopup');
-
-  var mainEvent = subEvent ? subEvent : window.event;
-
-  alert("This button click occurred at: X(" +
-  mainEvent.screenX + ") and Y(" + mainEvent.screenY + ")");
-
+  const button = document.getElementById('assignButton')
   if (form.style.display === 'block') {
     form.style.display = 'none';
+    button.innerHTML = "Assign Job";
   }
   else {
+    const popups = document.getElementsByClassName('popup');
+    Array.from(popups).forEach(function(popup) {
+      popup.style.display = 'none';
+    });
     form.style.display = 'block';
+    button.innerHTML = "Dismiss pop-up";
   }
 }
 function assignJob() {
@@ -84,11 +84,18 @@ function editJob() {
 
 function updateForm() {
   const form = document.getElementById('updatePopup');
+  const button = document.getElementById('updateButton')
   if (form.style.display === 'block') {
     form.style.display = 'none';
+    button.innerHTML = "Update Job";
   }
   else {
+    const popups = document.getElementsByClassName('popup');
+    Array.from(popups).forEach(function(popup) {
+      popup.style.display = 'none';
+    });
     form.style.display = 'block';
+    button.innerHTML = "Dismiss pop-up";
   }
 }
 function updateJob() {
