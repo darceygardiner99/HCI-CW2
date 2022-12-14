@@ -16,48 +16,50 @@
 
 <div class="faultForm" id="faultForm">
   <form class="form-container">
-        <h1>Report a Fault</h1>
+      <h1>Report a Fault</h1>
 
-        <label for="date"><b>Date:</b></label>
-        <input type="date" id="todaysDate" name="fault-date" placeholder="todaysDate" value="todaysDate" min="todaysDate" required>
+      <label for="date"><b>Date:</b></label>
+      <input type="date" id="todaysDate" name="fault-date" placeholder="todaysDate" value="todaysDate" min="todaysDate" required>
 
-        <label for="time"><b>Time:</b></label>
-        <input type="time" name="time" required>
+      <label for="time"><b>Time:</b></label>
+      <input type="time" name="time" required>
 
-        <label for="building"><b>Building:</b></label>
-        <select name="building" id="building" required>
-            <option value="">Please select a Building</option>
-            <option value="ARTS 1">ARTS 1 - Arts Building 1</option>
-            <option value="ARTS 2">ARTS 2 - Arts Building 2</option>
-            <option value="BDS">BDS - Blackdale Building</option>
-            <option value="C.HALL">C.HALL - Congregation Hall</option>
-            <option value="MUS">MUS - Music Centre</option>
-            <option value="DRA">DRA - Drama Studio</option>
-        </select>
+      <label for="building"><b>Building:</b></label>
+      <select name="building" id="building" required>
+          <option value="">Please select a Building</option>
+          <option value="ARTS 1">ARTS 1 - Arts Building 1</option>
+          <option value="ARTS 2">ARTS 2 - Arts Building 2</option>
+          <option value="BDS">BDS - Blackdale Building</option>
+          <option value="C.HALL">C.HALL - Congregation Hall</option>
+          <option value="MUS">MUS - Music Centre</option>
+          <option value="DRA">DRA - Drama Studio</option>
+      </select>
 
-        <label for="room"><b>Room:</b></label>
-        <input type="text" name="room" required>
+      <label for="room"><b>Room:</b></label>
+      <input type="text" name="room" required>
 
-        <label for="fault-type"><b>Fault Type:</b></label>
-        <select name="fault-type" id="fault-type" required>
-            <option value="">Please select a fault type</option>
-            <option value="furniture">Furniture</option>
-            <option value="electrical">Electrical</option>
-            <option value="lighting">Lighting</option>
-            <option value="plumbing">Plumbing</option>
-            <option value="structural">Structural</option>
-            <option value="desktop">Desktop (including peripherals)</option>
-        </select>
+      <label for="fault-type"><b>Fault Type:</b></label>
+      <select name="fault-type" id="fault-type" required>
+          <option value="">Please select a fault type</option>
+          <option value="furniture">Furniture</option>
+          <option value="electrical">Electrical</option>
+          <option value="lighting">Lighting</option>
+          <option value="plumbing">Plumbing</option>
+          <option value="structural">Structural</option>
+          <option value="desktop">Desktop (including peripherals)</option>
+      </select>
 
-        <div class="img-upload">
-            <label for="file-input"><b>Image:</b>
-                <img id="previewImg" src="attachmentIcon.png" style="width: 50px; height: 50px"/>
-            </label>
-            <input id="file-input" type="file" onchange="previewImg(this);" style="display: none;" />
-        </div>
 
-        <label for="details"><b>Details</b></label>
-        <input type="text" name="details" required>
+      <div class="img-upload">
+          <p id="tip-text">Click on the paperclip to upload.</p>
+          <label for="file-input"><b>Image:</b> <br>
+              <img id="PrevImg" onmouseover="popUpHover()" src="attachmentIcon.png" style="width: 50px; height: 50px" alt="Click here to upload an image"/>
+          </label>
+          <input id="file-input" type="file" onchange="previewImg(this);" style="display: none;">
+      </div>
+
+      <label for="details"><b>Details</b></label>
+      <input type="text" name="details" required>
 
       <button type="submit" class="btn">Save</button>
       <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>

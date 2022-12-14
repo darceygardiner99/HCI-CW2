@@ -161,3 +161,16 @@ function previewImg(input) {
         reader.readAsDataURL(file);
     }
 }
+function popUpHover(){
+  const target = document.getElementById("PrevImg");
+  const tip = document.getElementById("tip-text");
+
+  target.addEventListener('mouseover', () => {
+    tip.style.display = 'block';
+    }, false);
+
+  target.addEventListener('mouseleave', () => {
+    tip.style.display = 'none';
+    }, false);
+}
+
