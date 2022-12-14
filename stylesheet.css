@@ -77,16 +77,13 @@ body {
   width: 100%;
 }
 
-.listing td {
-  /*line-height: 250%;*/
-}
-
 .listing {
   min-width: 80%;
 }
 
-.details {
+.dropdown {
   display: none;
+  width: 80%;
 }
 
 .mainWindow td {
