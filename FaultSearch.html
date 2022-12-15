@@ -14,10 +14,10 @@
     <div class="searchBar">
         <span>
             <h2>Search</h2>
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </span><br><br>
+            <button id="searchBtn" class="searchBtn" onclick="searchOpen()"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </span>
 
-        <form name="searchForm" id="searchForm" onsubmit="return false">
+        <form name="searchForm" id="searchForm" class="searchForm" onsubmit="return false">
             <div class="formDiv">
                 <label for="buildingInput" id="buildingInputLabel">Building: </label>
                 <input type="text" class="searchFormInput" id="buildingInput" name="buildingInput" list="buildingList" onchange=roomSuggestion()>
@@ -71,12 +71,10 @@
         <button class="settingsBtn"><i class="fa-solid fa-gear" style="font-size:50px"></i></button>
         <button class="profileBtn" onclick="openProfileChange()" ><i class="fa-solid fa-user" style="font-size:50px"></i></button>
 
-        <!-- Fault Logging -->
+        <!-- Fault Logging--->
         <div class="faultLogging">
-            <h2>Fault Logging</h2>
-            <br>
-            <button onclick="openFaultForm()">Log Fault</button><br>
-            <button onclick="viewMyFaults()">View My Faults</button>
+            <button class="logFaultBtn"  onclick="openFaultForm()">Log Fault</button>
+            <button class="viewFaultBtn" onclick="viewMyFaults()">View My Faults</button>
         </div>
     </div>
 
@@ -84,14 +82,14 @@
     <div class="faultForm" id="faultForm">
         <form class="form-container">
             <span class="close" onclick="closeForm()">&times;</span>
-            <h1>Report a Fault</h1>
+            <h1>Report a Fault:</h1>
 
             <label for="date"><b>Date:</b></label>
             <input type="date" id="todaysDate" name="fault-date" placeholder="todaysDate" value="todaysDate" min="todaysDate" required>
-
+            <br>
             <label for="time"><b>Time:</b></label>
             <input type="time" name="time" required>
-
+            <br>
             <label for="building"><b>Building:</b></label>
             <select name="building" id="building" required>
                 <option value="">Please select a Building</option>
@@ -102,10 +100,10 @@
                 <option value="MUS">MUS - Music Centre</option>
                 <option value="DRA">DRA - Drama Studio</option>
             </select>
-
+            <br>
             <label for="room"><b>Room:</b></label>
-            <input type="text" name="room" required>
-
+            <input type="text" name="room"  placeholder='Enter Room number here...' required>
+            <br>
             <label for="fault-type"><b>Fault Type:</b></label>
             <select name="fault-type" id="fault-type" required>
                 <option value="">Please select a fault type</option>
@@ -116,8 +114,7 @@
                 <option value="structural">Structural</option>
                 <option value="desktop">Desktop (including peripherals)</option>
             </select>
-
-
+            <br>
             <div class="img-upload">
                 <p id="tip-text">Click on the paperclip to upload.</p>
                 <label for="file-input"><b>Image:</b> <br>
@@ -125,9 +122,9 @@
                 </label>
                 <input id="file-input" type="file" onchange="previewImg(this);" style="display: none;">
             </div>
-
+            <br>
             <label for="details"><b>Details:</b></label>
-            <textarea id="text-area" form="form-container" placeholder='Enter details here...' rows="5"></textarea>
+            <textarea id="text-area" form="form-container" placeholder='Enter details here...' rows="4"></textarea>
 
             <button type="submit" class="btn">Save</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
@@ -266,26 +263,29 @@
 <!--        POP UP FORMS    -->
         <div class="popup" id="assignPopup">
             <form class="popupForm" id="assignForm" onsubmit="return false">
-                <p>Assign job!</p>
-                <label for="assignField"></label><input type="text" placeholder="Enter name..." id="assignField" list="staffList" required></input>
-                <br><br>
-                <button onclick="assignJob()">Assign</button>
+                <span class="close" onclick="closePopups()">&times;</span>
+                <h3>Assign job:</h3>
+                <label for="assignField"></label>
+                <input type="text" placeholder="Enter name..." id="assignField" list="staffList" required>
+                <br>
+                <button class="btn" onclick="assignJob()">Assign</button>
             </form>
         </div>
 
         <div class="popup" id="updatePopup">
             <form class="popupForm" id="updateForm" onsubmit="return false">
-                <p>Update job!</p>
-                <label for="updateField"></label><textarea type="text" placeholder="Enter update..." id="updateField" cols="50" rows="3" required></textarea>
-                <br><br>
-                <button onclick="updateJob()">Update</button>
+                <span class="close" onclick="closePopups()">&times;</span>
+                <h3>Update job:</h3>
+                <label for="updateField"></label>
+                <textarea type="text" placeholder="Enter update..." id="updateField" cols="50" rows="3" required></textarea>
+                <br>
+                <button class="btn" onclick="updateJob()">Update</button>
             </form>
         </div>
 
         <div class="faultForm" id="editPopup">
             <form class="form-container" id="editForm" onsubmit="return false">
-                <p>Edit job!</p>
-
+                <span class="close" onclick="closePopups()">&times;</span> <br>
                 <label for="editFaultId"><b>Fault Id:</b></label>
                 <input type="text" id="editFaultId" class="editInput">
 
@@ -296,7 +296,7 @@
                 <input type="text" id="editRoom" list="roomList" class="editInput">
 
                 <label for="editType"><b>Fault Type:</b></label><br>
-                <input name="fault-type" id="editType" list="typeList" class="editInput"><br><br>
+                <input name="fault-type" id="editType" list="typeList" class="editInput">
 
                 <label for="editDate"><b>Date:</b></label>
                 <input type="date" id="editDate" class="editInput">
@@ -308,14 +308,13 @@
                 <input type="text" id="editStatus" list="statusList" class="editInput">
 
                 <label for="editDetails"><b>Details</b></label>
-                <textarea type="text" id="editDetails" class="editInput" cols="50" rows="3"></textarea>
+                <textarea id="text-area" id="editDetails" class="editInput" cols="50" rows="2"></textarea>
 
                 <label for="editUpdates"><b>Updates</b></label>
-                <textarea type="text" id="editUpdates" class="editInput" cols="50" rows="3"></textarea>
+                <textarea id="text-area" id="editUpdates" class="editInput" cols="50" rows="3"></textarea>
 
-                <br><br>
-                <button onclick="editJob()">Submit</button>
-                <button type="button" class="btn cancel" onclick="closeEdit()">Cancel</button>
+                <button type="submit" class="btn" onclick="editJob()">Submit</button>
+                <button type="button" class="btn cancel" onclick="closePopups()">Cancel</button>
             </form>
         </div>
 

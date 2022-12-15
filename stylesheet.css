@@ -24,41 +24,32 @@ body {
 }
 
 h2 {
-  font-size: 32pt;
+  font-size: 28pt;
   display: inline;
-  margin-block-start: 4%;
+  margin-block-start: auto;
   margin-block-end: auto;
   text-decoration: none;
   margin-left: 7px;
 }
 
-.searchBar i {
-  float: right;
-  margin-right: 15px;
-  font-size:50px
-}
 
-.searchBar form {
+.searchForm {
   margin-right: auto;
   margin-left: auto;
-  margin-top: 0px;
+  display: none;
 }
 
 .formDiv {
   float: left;
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  max-width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.formDiv label {
-    transform: translate(0, 25%);
-}
 
 .searchBar label {
   display: block;
-  font-size: 20pt;
-  font-weight: lighter;
+  font-size: 15pt;
   text-align: right;
   float: left;
   margin-left: 7px;
@@ -66,15 +57,17 @@ h2 {
 
 .searchBar input {
   display: block;
-  font-size: 15pt;
+  font-size: 10pt;
   text-align: left;
-  max-width: 55%;
-  float: right;
+  width: 80%;
   bottom: 0;
-  padding: 7px;
+  padding: 5px;
   border-radius: 5px;
-  border: 3px solid #D2C9C9FF;
-  margin-right: 5px;
+  border: 0;
+  background: #f1f1f1;
+  color: #111111;
+  outline: 1px solid;
+  margin-left: 7px;
   font-family: "Courier New", monospace;
 }
 
@@ -86,11 +79,12 @@ h2 {
   border: 3px solid #D2C9C9FF;
   cursor: pointer;
   width: 43%;
-  margin-left: 13px;
   font-family: "Courier New", monospace;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
   opacity: 0.8;
+  padding: 0;
+  margin: 5px
 }
 
 .searchButton:hover,
@@ -99,17 +93,33 @@ h2 {
 }
 
 
-
 .faultLogging {
   bottom: 10%;
   position: fixed;
+  width: inherit;
+}
+
+.faultLogging h2 {
+  font-size: 28pt;
+}
+
+.logFaultBtn,
+.viewFaultBtn {
+  width: 45%;
+  margin: 0;
+  height: fit-content;
+  padding: 10px;
+}
+
+.logFaultBtn {
+  margin-left: 6px;
 }
 
 .mainWindow {
   margin: auto;
   display: inline-block;
   height: 100%;
-  width: 81%;
+  width: 80%;
   z-index: 1; /* keeps forward */
   right: 0;
   float: right;
@@ -124,7 +134,24 @@ h2 {
 
 .sortBar {
   float: right;
-  font-size: 18pt;
+  font-size: 16pt;
+  border-bottom: transparent !important;
+}
+
+.close {
+  border-bottom: transparent !important;
+}
+
+.sortBar select {
+  padding: 10px;
+  margin: 5px 0 17px 0;
+  border: none;
+  border-radius: 10px;
+  background: #f1f1f1;
+  color: #111111;
+  font-family: "Courier New", monospace;
+  outline: 1px solid;
+  border-right: 16px solid transparent;
 }
 
 .mainWindow table {
@@ -178,18 +205,29 @@ table, td {
 }
 
 button {
+  border-radius: 5px;
+  background-color: #D2C9C9FF;
+  color: #111111;
+  border: 3px solid #D2C9C9FF;
+  cursor: pointer;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
   display: inline-block;
   width: 125px;
   height: 60px;
   margin-left: 10px;
   margin-right: 10px;
-  background-color: dimgrey;
-  color: white;
-  padding: 15px 32px;
+  padding: 15px 15px;
   font-size: 12pt;
   text-align: center;
   vertical-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  opacity: 0.8;
+}
+
+button:hover {
+  opacity: 1;
 }
 
 .popup button {
@@ -210,48 +248,33 @@ button {
   left: 50%;
   margin-top: -100px;
   margin-left: -200px;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.popup#updatePopup {
+  height: 230px;
 }
 
 .popupForm {
-  max-width: 300px;
+  max-width: 400px;
   padding: 10px;
 }
 
-/*SideNav*/
-.sidenav {
-  height: 100%;
-  width: 20%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #25669E;
-  overflow-x: hidden;
-  padding-top: 20px;
+.popupForm input[type=text] {
+  border-radius: 5px;
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 17px 0;
+  border: 0;
+  background: #f1f1f1;
+  color: #111111;
   font-family: "Courier New", monospace;
+  font-size: 15px;
+  outline: 1px solid;
 }
 
-.sidenav a {
-  padding: 6px 6px 6px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #f1f1f1;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-left: 10%;
-  font-family: "Courier New", monospace;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
 
 .faultFormBtn {
   background-colour: #818181;
@@ -267,22 +290,25 @@ button {
   font-family: "Courier New", monospace;
 }
 
+
 .settingsBtn,
 .profileBtn {
+  color: white;
   border: none;
-  padding: 12px 12px;
+  padding: 7px 7px;
   cursor: pointer;
   background-color: transparent;
   position: fixed;
   bottom: 0;
-  left: 0;
+  width: 65px;
 }
-.profileBtn {
-  left: 10%;
+
+.profileBtn{
+  left: 165px
 }
 
 .settingsBtn {
-  left: 7.5%;
+  left: 100px;
 }
 
 
@@ -292,12 +318,16 @@ button {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -60%);
   width: 50%;
-  border: 3px solid #f1f1f1;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border: 1px solid black;
+  background: white;
   z-index: 1;
   font-family: "Courier New", monospace;
-  font-size: 20px;
+  font-size: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .form-container {
@@ -309,37 +339,38 @@ button {
 
 .form-container select{
   width: 100%;
-  padding: 15px;
+  padding: 7px;
   margin: 5px 0 17px 0;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   background: #f1f1f1;
   color: #111111;
   font-family: "Courier New", monospace;
-  font-size: 20px;
+  font-size: 15px;
   outline: 1px solid;
   border-right: 16px solid transparent;
 }
 
-/* Full-width input fields */
 .form-container input[type=text],
 .form-container input[type=time],
 textarea#text-area,
-.form-container input[type=date] {
-  border-radius: 10px;
-  width: 96%;
-  padding: 15px;
+.form-container input[type=date],
+input#editType,
+.popup textarea{
+  border-radius: 5px;
+  width: 98%;
+  padding: 7px;
   margin: 5px 0 17px 0;
   border: 0;
   background: #f1f1f1;
   color: #111111;
   font-family: "Courier New", monospace;
-  font-size: 20px;
+  font-size: 15px;
   outline: 1px solid;
-  border-right: 16px solid transparent;
 }
 
-textarea#text-area {
+textarea#text-area,
+.popup textarea{
   position: relative;
   resize: none;
 }
@@ -361,18 +392,31 @@ textarea#text-area {
 }
 
 /* Set a style for the submit/login button */
-.form-container .btn {
+.form-container .btn,
+.popup .btn{
   border-radius: 5px;
   background-color: #04AA6D;
   color: #f1f1f1;
-  padding: 16px 20px;
+  padding: 14px 14px;
   border: none;
   cursor: pointer;
-  width: 47%;
-  margin-bottom:10px;
-  opacity: 0.8;
+  width: 46%;
+  opacity: 1;
   font-family: "Courier New", monospace;
-  font-size: 20px;
+  font-size: 18px;
+  height: 50px;
+}
+
+.popup .btn {
+  width: 50%;
+  margin-left: 0;
+}
+
+.form-container h1 {
+  font-size: 27pt;
+  padding: 0;
+  margin-block-start: 5px;
+  margin-block-end: 5px;
 }
 
 .profile {
@@ -400,9 +444,9 @@ textarea#text-area {
 p#tip-text{
   display: none;
   position: absolute;
-  top: 565px;
+  top: 400px;
   z-index: 1;
-  background: #dc267f;
+  background: #25669E;
   padding: 8px;
   border-radius: 5px;
   animation: fadeIn 0.6s;
@@ -416,7 +460,7 @@ p#tip-text:before {
   left: 5%;
   margin-left: -8px;
   border: 8px solid transparent;
-  border-top: 8px solid #dc267f;
+  border-top: 8px solid #25669E;
 }
 
 @keyframes fadeIn {
@@ -435,10 +479,10 @@ p#tip-text:before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30%;
-  border: 3px solid #f1f1f1;
+  width: 40%;
   overflow: auto;
-  background-color: #f1f1f1;
+  border: 1px solid black;
+  background: white;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   margin: auto;
@@ -447,7 +491,7 @@ p#tip-text:before {
 }
 
 .changeTable {
-  background-color: #f1f1f1;
+  background-color: white;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
@@ -465,4 +509,23 @@ p#tip-text:before {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.searchBtn {
+  padding: 0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  display: inline;
+  float: right;
+  margin-right: 15px;
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+.active,
+.searchBtn:hover {
+  color: #D2C9C9FF;
 }
