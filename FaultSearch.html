@@ -27,7 +27,8 @@
             <button id="searchButton">Search</button><button id="clearButton" onclick=clearSearchForm()>Clear</button>
         </form>
         <br><br>
-        <button class="profileBtn" onclick="openProfileChange()" ><img id="profileBtn" src="resources/profilePic.png" style="width: 50px; height: 50px"/></i></button>
+        <button class="profileBtn" onclick="openProfileChange()"><img id="profileBtn" src="resources/profilePic.png" style="width: 50px; height: 50px" alt="Profile Logo"/></button>
+        <button class="settingsBtn" onclick="openSettings()"><img id="settingsBtn" src="resources/settingsIcon2.png" style="width: 50px; height: 50px" alt="Settings logo"/></button>
 
         <!-- Fault Logging -->
         <div class="faultLogging">
@@ -36,8 +37,6 @@
             <button>Log Fault</button><br>
             <button onclick="viewMyFaults()">View My Faults</button>
         </div>
-
-        <button class="profileBtn" onclick="openProfileChange()" ><img id="profileBtn" src="profilePic.png"style="width: 50px; height: 50px"/></i></button>
     </div>
 
     <div class="profileChange" id="profileChange">
@@ -47,7 +46,7 @@
             <tr>
                 <td><button class="profile" onclick="swapToStudent()">Students / Staff</button></td>
                 <td><button class="profile" onclick="swapToEngineer()">Engineers</button></td>
-                <td><button class="profile" onclick="swapToAdmin()">Administators</button></td>
+                <td><button class="profile" onclick="swapToAdmin()">Administrators</button></td>
             </tr>
         </table>
     </div>
@@ -70,7 +69,7 @@
         <table>
             <tr id="1listing" class="listing">
                 <td class="imgTd"><img src="resources/chairbroke.jpg" alt="broken chair"></td>
-                <td class="textTd">Fault ID: <p>354684</p><br>Building: <p>JSC - Julian Study Centre"</p><br>Room: <p>3.02</p></td>
+                <td class="textTd">Fault ID: <p>354684</p><br>Building: <p>JSC - Julian Study Centre</p><br>Room: <p>3.02</p></td>
                 <td class="textTd">Fault Type: <p>Furniture</p><br>Date: <p>01/11/2022</p><br>Assigned To: <p id="1assigned">Kirsten Fickstings</p><br>Status: <p>Low Priority</p></td>
                 <td class="buttonTd">
                     <button onclick="editForm(1)" id="1editButton" class="popupButton">Edit Job</button><br>
@@ -223,6 +222,17 @@
                 <button onclick="editJob()">Submit</button>
                 <button type="button" class="btn cancel" onclick="closeEdit()">Cancel</button>
             </form>
+        </div>
+
+        <div class="popup" id="settings">
+            <h2>Settings</h2>
+
+            <br><p><b>Colourblind Mode</b></p>
+            <label for="cbOff">Off (default)</label><input type="radio" id="cbOff">
+            <label for="cbOn">On</label><input type="radio" id="cbOn">
+
+            <br><p><b>Font Size</b></p>
+            <input type="range" min="1" max="32" value="18">
         </div>
     </div>
 

@@ -70,6 +70,28 @@ function hideDropDowns() {
   })
 }
 
+function closePopups(exclude) {
+  const popups = Array.from(document.getElementsByClassName("popup")).concat(Array.from(document.getElementsByClassName("faultForm")));
+  const buttons = document.getElementsByClassName("popupButton");
+
+  Array.from(popups).forEach(function(popup) {
+    if (!popup.id.includes(exclude)) {
+      popup.style.display = 'none';
+    }
+  });
+  Array.from(buttons).forEach(function(button) {
+    if (button.id.includes("edit")) {
+      button.innerHTML = "Edit Job";
+    }
+    else if (button.id.includes("assign")) {
+      button.innerHTML = "Assign Job";
+    }
+    else if (button.id.includes("update")) {
+      button.innerHTML = "Update Job";
+    }
+  })
+}
+
 function viewMyFaults() {
   hideDropDowns();
   const listings = document.getElementsByClassName("listing");
@@ -84,11 +106,10 @@ function viewMyFaults() {
   })
 }
 
-
 function dropDown(index) {
   currentIndex = index;
   const row = document.getElementById(currentIndex + "dropDown");
-  if (row.style.display === 'none') {
+  if (row.style.display === 'none' || !row.style.display) {
     row.style.display = 'table-row';
   }
   else {
@@ -97,28 +118,33 @@ function dropDown(index) {
   }
 }
 
+function openSettings() {
+  const form = document.getElementById('settings');
+
+  if (form.style.display === 'none' || !form.style.display) {
+    closePopups();
+    form.style.display = 'block';
+  }
+  else {
+    closePopups();
+  }
+}
+
 function editForm(index) {
   currentIndex = index;
   const form = document.getElementById('editPopup');
   const button = document.getElementById(currentIndex + 'editButton')
-  if (form.style.display === 'block') {
-    form.style.display = 'none';
-    button.innerHTML = "Edit Job";
-  }
-  else {
-    const popups = document.getElementsByClassName('popup');
-    Array.from(popups).forEach(function(popup) {
-      popup.style.display = 'none';
-    });
+
+  if (form.style.display === 'none' || !form.style.display) {
+    closePopups('edit');
     const details = getJobDetails(index);
     displayEditDetails(details);
     form.style.display = 'block';
     button.innerHTML = "Dismiss pop-up";
   }
-}
-function closeEdit() {
-  document.getElementById('editPopup').style.display = 'none';
-  document.getElementById(currentIndex + 'editButton').innerHTML = "Edit Job";
+  else {
+    closePopups();
+  }
 }
 function editJob() {
   const inputArray = document.getElementsByClassName('editInput');
@@ -148,18 +174,16 @@ function assignForm(index) {
   currentIndex = index;
   const form = document.getElementById('assignPopup');
   const button = document.getElementById(currentIndex + 'assignButton')
-  if (form.style.display === 'block') {
-    form.style.display = 'none';
-    button.innerHTML = "Assign Job";
-  }
-  else {
-    const popups = document.getElementsByClassName('popup');
-    Array.from(popups).forEach(function(popup) {
-      popup.style.display = 'none';
-    });
+  if (form.style.display === 'none' || !form.style.display) {
+    closePopups('assign');
+
     form.style.display = 'block';
     button.innerHTML = "Dismiss pop-up";
   }
+  else {
+    closePopups();
+  }
+
 }
 function assignJob() {
   const input = document.getElementById('assignField');
@@ -171,17 +195,14 @@ function updateForm(index) {
   currentIndex = index;
   const form = document.getElementById('updatePopup');
   const button = document.getElementById(currentIndex + 'updateButton')
-  if (form.style.display === 'block') {
-    form.style.display = 'none';
-    button.innerHTML = "Update Job";
-  }
-  else {
-    const popups = document.getElementsByClassName('popup');
-    Array.from(popups).forEach(function(popup) {
-      popup.style.display = 'none';
-    });
+  if (form.style.display === 'none' || !form.style.display) {
+    closePopups('update');
+
     form.style.display = 'block';
     button.innerHTML = "Dismiss pop-up";
+  }
+  else {
+    closePopups();
   }
 }
 function updateJob() {
