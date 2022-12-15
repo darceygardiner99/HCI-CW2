@@ -63,6 +63,28 @@ function searchDisplay(actorType) {
   });
 }
 
+function hideDropDowns() {
+  const dropdowns = document.getElementsByClassName("dropdown");
+  Array.from(dropdowns).forEach(function(dropdown) {
+    dropdown.style.display = 'none';
+  })
+}
+
+function viewMyFaults() {
+  hideDropDowns();
+  const listings = document.getElementsByClassName("listing");
+
+  Array.from(listings).forEach(function(listing) {
+    if (listing.id.includes('4') || listing.id.includes('5')) {
+      listing.style.display = 'table-row';
+    }
+    else {
+      listing.style.display = 'none';
+    }
+  })
+}
+
+
 function dropDown(index) {
   currentIndex = index;
   const row = document.getElementById(currentIndex + "dropDown");
@@ -106,7 +128,7 @@ function editJob() {
   let inputs = [];
 
   Array.from(inputArray).forEach(function(input) {
-    if (input.tagName === 'INPUT') {
+    if (input.tagName === 'INPUT' || input.tagName === 'TEXTAREA') {
       inputs.push(input.value);
     }
   })
@@ -142,7 +164,7 @@ function assignForm(index) {
 function assignJob() {
   const input = document.getElementById('assignField');
   const output = document.getElementById(currentIndex + 'assigned');
-  output.innerHTML = "Assigned To: " + input.value;
+  output.innerHTML = input.value;
 }
 
 function updateForm(index) {
