@@ -24,7 +24,19 @@
             <button id="searchButton">Search</button><button id="clearButton" onclick=clearSearchForm()>Clear</button>
         </form>
         <br><br>
-        <button onclick="swapDisplay()">Swap view</button>
+        <button class="profileBtn" onclick="openProfileChange()" ><img id="profileBtn" src="profilePic.png"style="width: 50px; height: 50px"/></i></button>
+    </div>
+
+    <div class="profileChange" id="profileChange">
+        <span class="close" onclick="closeProfileChange()">&times;</span>
+        <h1>Change profile view</h1>
+        <table class="changeTable" style="width:75%">
+            <tr>
+                <td><button class="profile" onclick="swapToStudent()">Students / Staff</button></td>
+                <td><button class="profile" onclick="swapToEngineer()">Engineers</button></td>
+                <td><button class="profile" onclick="swapToAdmin()">Administators</button></td>
+            </tr>
+        </table>
     </div>
 
     <!-- Main Window / Results Controls -->
