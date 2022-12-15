@@ -61,6 +61,11 @@ h2 {
   bottom: 0;
 }
 
+.faultLogging {
+  bottom: 10%;
+  position: fixed;
+}
+
 .mainWindow {
   margin: auto;
   display: inline-block;
@@ -76,6 +81,11 @@ h2 {
 .mainWindow span {
   height: auto;
   border-bottom: 2px solid black;
+}
+
+.sortBar {
+  float: right;
+  font-size: 18pt;
 }
 
 .mainWindow table {
@@ -167,13 +177,6 @@ button {
   max-width: 300px;
   padding: 10px;
 }
-
-.popup textarea {
-  cols: 5;
-  height: 40px;
-  width: 300px;
-}
-
 
 /*SideNav*/
 .sidenav {
