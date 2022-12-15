@@ -546,3 +546,9 @@ p#tip-text:before {
 .searchBtn:hover {
   color: #D2C9C9FF;
 }
+
+.fa-solid, .fas {
+    font-weight: 900;
+    font-size: 30px;
+    align: center;
+}
