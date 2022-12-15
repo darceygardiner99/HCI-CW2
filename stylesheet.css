@@ -5,7 +5,6 @@ body {
 /*FaultSearch*/
 .searchBar {
   margin: auto;
-  display: inline-block;
   height: 100%;
   width: 20%;
   position: fixed; /* prevents scrolling */
@@ -17,38 +16,48 @@ body {
 
 .searchBar span {
   display: inline;
+  overflow: hidden;
 }
 
 .searchBar h2 {
   font-size: 32pt;
-  display: inline-block;
+  display: inline;
   margin-block-start: 4%;
   margin-block-end: auto;
 }
 
 .searchBar img {
-  display: inline;
   float: right;
+}
+
+.searchBar form {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.formDiv {
+  float: left;
+  width: 100%;
 }
 
 .searchBar label {
+  display: block;
   font-size: 20pt;
   font-weight: lighter;
   text-align: right;
+  float: left;
 }
 
 .searchBar input {
+  display: block;
   font-size: 15pt;
   text-align: left;
+  max-width: 50%;
   float: right;
-  margin-right: 4%;
-}
-
-.searchBar button {
-  background-color: #d3e1e1;
-  color: #101010;
-  padding: 15px 32px;
-  font-size: 12pt;
+  bottom: 0;
 }
 
 .mainWindow {
@@ -68,12 +77,13 @@ body {
   width: 100%;
 }
 
-.listing td {
-  /*line-height: 250%;*/
-}
-
 .listing {
   min-width: 80%;
+}
+
+.dropdown {
+  display: none;
+  width: 80%;
 }
 
 .mainWindow td {
@@ -91,22 +101,42 @@ body {
   min-width: 0;
   max-width: 5%;
   vertical-align: bottom;
-  line-height: 150%;
+  line-height: 100%;
 }
 
-.popupButton {
-  background-color: #555;
+button {
+  display: inline-block;
+  width: 125px;
+  height: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: dimgrey;
   color: white;
-  padding: 8px 10px;
+  padding: 15px 32px;
+  font-size: 12pt;
+  text-align: center;
+  vertical-align: center;
+  margin-bottom: 10px;
+}
+
+.popup button {
+  padding: 0 0;
+  width: 100px;
+  height: 40px;
 }
 
 .popup {
   display: none;
-  position: fixed;
   z-index: 9;
   border: 1px solid black;
-  right: 0;
-  top: 5%;
+  background: white;
+  height: 200px;
+  width: 400px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
 }
 
 .popupForm {
@@ -114,7 +144,11 @@ body {
   padding: 10px;
 }
 
-
+.popup textarea {
+  cols: 5;
+  height: 40px;
+  width: 300px;
+}
 
 
 /*SideNav*/
