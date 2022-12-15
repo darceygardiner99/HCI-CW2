@@ -12,16 +12,6 @@ let currentActor = 0;
 let currentIndex = 0;
 
 //Display functions
-function swapDisplay() {
-  if (currentActor !== 3) {
-    currentActor++;
-  }
-  else {
-    currentActor = 0;
-  }
-  searchDisplay(currentActor);
-}
-
 function swapToStudent() {
   currentActor = 0;
   searchDisplay(currentActor);
@@ -48,6 +38,7 @@ function searchDisplay(actorType) {
     actor.forEach(actorField => {
       if (input.id.includes(actorField)) {
         input.style.display = 'none';
+        input.style.ariaHidden = 'true';
         document.getElementById(input.id+"Label").style.display = 'none';
         document.getElementById(input.id+"Break").style.display = 'none';
       }
@@ -89,7 +80,7 @@ function closePopups(exclude) {
     else if (button.id.includes("update")) {
       button.innerHTML = "Update Job";
     }
-  })
+  });
 }
 
 function viewMyFaults() {
@@ -103,7 +94,7 @@ function viewMyFaults() {
     else {
       listing.style.display = 'none';
     }
-  })
+  });
 }
 
 function dropDown(index) {
@@ -128,6 +119,10 @@ function openSettings() {
   else {
     closePopups();
   }
+}
+function fontSizeDisplay() {
+  let fontSize = document.getElementById("fontSizeSlider").value;
+  document.getElementById("fontSizeDisplay").innerHTML = "Font size: " + fontSize;
 }
 
 function editForm(index) {

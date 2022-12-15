@@ -68,7 +68,7 @@
             <button class="clearButton" onclick=clearSearchForm()>Clear</button>
         </form>
         <br><br>
-        <button class="settingsBtn"><i class="fa-solid fa-gear" style="font-size:50px"></i></button>
+        <button class="settingsBtn" onclick="openSettings()"><i class="fa-solid fa-gear" style="font-size:50px"></i></button>
         <button class="profileBtn" onclick="openProfileChange()" ><i class="fa-solid fa-user" style="font-size:50px"></i></button>
 
         <!-- Fault Logging -->
@@ -161,7 +161,7 @@
         </span><br><br>
 
 
-        <table>
+        <table role="presentation">
             <tr id="1listing" class="listing">
                 <td class="imgTd"><img src="resources/chairbroke.jpg" alt="broken chair"></td>
                 <td class="textTd">Fault ID: <p>354684</p><br>Building: <p>JSC - Julian Study Centre</p><br>Room: <p>3.02</p></td>
@@ -323,11 +323,14 @@
             <h2>Settings</h2>
 
             <br><p><b>Colourblind Mode</b></p>
-            <label for="cbOff">Off (default)</label><input type="radio" id="cbOff">
-            <label for="cbOn">On</label><input type="radio" id="cbOn">
+            <input type="radio" id="cbOff" name="cbRadio" checked><label for="cbOff">Off (default)</label><br>
+            <input type="radio" id="cbOn" name="cbRadio"><label for="cbOn">On</label><br>
 
             <br><p><b>Font Size</b></p>
-            <input type="range" min="1" max="32" value="18">
+            <label>
+                <input type="range" id="fontSizeSlider" min="9" max="36" value="18" onchange="fontSizeDisplay()">
+            </label>
+            <p id="fontSizeDisplay">Font size: </p>
         </div>
     </div>
 
