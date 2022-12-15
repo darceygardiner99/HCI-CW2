@@ -11,15 +11,6 @@ let currentActor = 0;
 
 let currentIndex = 0;
 
-
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-
 //Display functions
 function swapDisplay() {
   if (currentActor !== 3) {
@@ -28,6 +19,21 @@ function swapDisplay() {
   else {
     currentActor = 0;
   }
+  searchDisplay(currentActor);
+}
+
+function swapToStudent() {
+  currentActor = 0;
+  searchDisplay(currentActor);
+}
+
+function swapToEngineer() {
+  currentActor = 2;
+  searchDisplay(currentActor);
+}
+
+function swapToAdmin() {
+  currentActor = 3;
   searchDisplay(currentActor);
 }
 
@@ -276,6 +282,15 @@ function displayEditDetails(details) {
     count++;
   });
 }
+
+function openProfileChange() {
+  document.getElementById("profileChange").style.display= "block";
+}
+
+function closeProfileChange() {
+  document.getElementById("profileChange").style.display= "none";
+}
+
 
 function openFaultForm() {
     document.getElementById("faultForm").style.display="block";

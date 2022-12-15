@@ -10,12 +10,27 @@
 <div class="sidenav">
     <button class="faultFormBtn" onclick="openFaultForm()">Report a Fault</button>
     <button class="settingsBtn"><img id="settingsBtn" src="settingsIcon2.png" style="width: 50px; height: 50px"/></i></button>
+    <button class="profileBtn" onclick="openProfileChange()" ><img id="profileBtn" src="profilePic.png"style="width: 50px; height: 50px"/></i></button>
+</div>
 
+<div class="profileChange" id="profileChange">
+    <div class="profileChange-content">
+        <span class="close" onclick="closeProfileChange()">&times;</span>
+        <h1>Change profile view</h1>
+        <table class="changeTable" style="width:75%">
+            <tr>
+                <td><button class="profile" onclick="swapToStudent()">Students / Staff</button></td>
+                <td><button class="profile" onclick="swapToEngineer()">Engineers</button></td>
+                <td><button class="profile" onclick="swapToAdmin()">Administators</button></td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 
 <div class="faultForm" id="faultForm">
   <form class="form-container">
+      <span class="close" onclick="closeForm()">&times;</span>
       <h1>Report a Fault</h1>
 
       <label for="date"><b>Date:</b></label>
@@ -58,8 +73,8 @@
           <input id="file-input" type="file" onchange="previewImg(this);" style="display: none;">
       </div>
 
-      <label for="details"><b>Details</b></label>
-      <input type="text" name="details" required>
+      <label for="details"><b>Details:</b></label>
+      <textarea id="text-area" form="form-container" placeholder='Enter details here...' rows="5"></textarea>
 
       <button type="submit" class="btn">Save</button>
       <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
