@@ -420,9 +420,10 @@ p#tip-text:before {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+  border: none;
 }
 
-td {
+.changeTable td {
   border: none;
   text-align: center;
 }
