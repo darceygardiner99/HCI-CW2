@@ -81,25 +81,43 @@ body {
   min-width: 80%;
 }
 
+.listing p {
+  white-space: nowrap;
+  display: inline;
+  line-height: 180%;
+}
+
 .dropdown {
   display: none;
   width: 80%;
 }
 
+table, td {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-collapse: collapse;
+}
+
 .mainWindow td {
-  width: 30%;
   font-size: 18pt;
   text-align: left;
-  border-bottom: 2px solid black;
+}
+
+.textTd {
+  width: 40%;
+}
+
+.imgTd {
+  width: 15% !important;
+  padding-left: 20px;
 }
 
 .mainWindow img {
-  max-width: 80%;
+  max-width: 75%;
 }
 
-.buttonColumn {
-  min-width: 0;
-  max-width: 5%;
+.buttonTd {
+  width: 5%;
   vertical-align: bottom;
   line-height: 100%;
 }
