@@ -6,7 +6,7 @@ body {
 .searchBar {
   margin: auto;
   height: 100%;
-  width: 15%;
+  width: 17%;
   position: fixed; /* prevents scrolling */
   z-index: 1; /* keeps forward */
   top: 0;
@@ -29,23 +29,30 @@ h2 {
   margin-block-start: 4%;
   margin-block-end: auto;
   text-decoration: none;
+  margin-left: 7px;
 }
 
-.searchBar img {
+.searchBar i {
   float: right;
+  margin-right: 15px;
+  font-size:50px
 }
 
 .searchBar form {
   margin-right: auto;
   margin-left: auto;
   margin-top: 0px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 
 .formDiv {
   float: left;
   width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.formDiv label {
+    transform: translate(0, 25%);
 }
 
 .searchBar label {
@@ -54,16 +61,44 @@ h2 {
   font-weight: lighter;
   text-align: right;
   float: left;
+  margin-left: 7px;
 }
 
 .searchBar input {
   display: block;
   font-size: 15pt;
   text-align: left;
-  max-width: 50%;
+  max-width: 55%;
   float: right;
   bottom: 0;
+  padding: 7px;
+  border-radius: 5px;
+  border: 3px solid #D2C9C9FF;
+  margin-right: 5px;
+  font-family: "Courier New", monospace;
 }
+
+.searchButton,
+.clearButton{
+  border-radius: 5px;
+  background-color: #D2C9C9FF;
+  color: #111111;
+  border: 3px solid #D2C9C9FF;
+  cursor: pointer;
+  width: 43%;
+  margin-left: 13px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+.searchButton:hover,
+.clearButton:hover {
+  opacity: 1;
+}
+
+
 
 .faultLogging {
   bottom: 10%;
@@ -74,7 +109,7 @@ h2 {
   margin: auto;
   display: inline-block;
   height: 100%;
-  width: 80%;
+  width: 81%;
   z-index: 1; /* keeps forward */
   right: 0;
   float: right;
@@ -185,7 +220,7 @@ button {
 /*SideNav*/
 .sidenav {
   height: 100%;
-  width: 15%;
+  width: 20%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -251,7 +286,6 @@ button {
 }
 
 
-/* The popup form - hidden by default */
 .faultForm {
   border-radius: 5px;
   display: none;
@@ -266,7 +300,6 @@ button {
   font-size: 20px;
 }
 
-/* Add styles to the form container */
 .form-container {
   border-radius: 5px;
   max-width: 100%;
@@ -412,8 +445,6 @@ p#tip-text:before {
   padding: 15px;
   text-align: center;
 }
-
-
 
 .changeTable {
   background-color: #f1f1f1;
