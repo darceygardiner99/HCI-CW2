@@ -14,7 +14,8 @@
     <div class="searchBar">
         <span>
             <h2>Search</h2>
-            <button id="searchBtn" class="searchBtn" onclick="searchOpen()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <p id="tip-text2">Click on the magnifying glass to search.</p>
+            <button onmouseover="popUpHover2()" id="searchBtn" class="searchBtn" onclick="searchOpen()"><i class="fa-solid fa-magnifying-glass"></i></button>
         </span>
 
         <form name="searchForm" id="searchForm" class="searchForm" onsubmit="return false">
@@ -320,8 +321,8 @@
 
         <div class="popup" id="settings">
             <h2>Settings</h2>
-
-            <br><p><b>Colourblind Mode</b></p>
+            <span class="close" onclick="closePopups()">&times;</span> <br>
+            <p><b>Colourblind Mode</b></p>
             <input type="radio" id="cbOff" name="cbRadio" checked><label for="cbOff">Off (default)</label><br>
             <input type="radio" id="cbOn" name="cbRadio"><label for="cbOn">On</label><br>
 

@@ -346,6 +346,19 @@ function popUpHover(){
     }, false);
 }
 
+function popUpHover2(){
+  const target = document.getElementById("searchBtn");
+  const tip = document.getElementById("tip-text2");
+
+  target.addEventListener('mouseover', () => {
+    tip.style.display = 'block';
+    }, false);
+
+  target.addEventListener('mouseleave', () => {
+    tip.style.display = 'none';
+    }, false);
+}
+
 function searchOpen() {
   var form = document.getElementById("searchForm");
 
