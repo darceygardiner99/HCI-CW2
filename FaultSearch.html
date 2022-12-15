@@ -13,13 +13,13 @@
         <span><h2>Search</h2>                           <img src="resources/search.png" alt="Search Icon"></span><br><br>
 
         <form name="searchForm" id="searchForm" onsubmit="return false">
-            <div class="formDiv"><label for="buildingInput" id="buildingInputLabel">Building: </label>   <input type="text" id="buildingInput" name="buildingInput" list="buildingList" onchange=roomSuggestion()></div><br id="buildingInputBreak">
-            <div class="formDiv"><label for="roomInput" id="roomInputLabel">Room: </label>               <input type="text" id="roomInput" name="roomInput" list="roomList"></div><br id="roomInputBreak">
-            <div class="formDiv"><label for="floorInput" id="floorInputLabel">Floor: </label>            <input type="text" id="floorInput" name="floorInput"></div><br id="floorInputBreak">
-            <div class="formDiv"><label for="faultIdInput" id="faultIdInputLabel">Fault ID: </label>     <input type="text" id="faultIdInput" name="faultIdInput"></div><br id="faultIdInputBreak">
-            <div class="formDiv"><label for="statusInput" id="statusInputLabel">Status: </label>         <input type="text" id="statusInput" name="statusInput" list="statusList"></div><br id="statusInputBreak">
-            <div class="formDiv"><label for="typeInput" id="typeInputLabel">Type: </label>               <input type="text" id="typeInput" name="typeInput" list="typeList"></div><br id="typeInputBreak">
-            <div class="formDiv"><label for="dateInput" id="dateInputLabel">Date: </label>               <input type="date" id="dateInput" name="dateInput"></div><br id="dateInputBreak">
+            <div class="formDiv"><label for="buildingInput" id="buildingInputLabel">Building: </label>   <input type="text" class="searchFormInput" id="buildingInput" name="buildingInput" list="buildingList" onchange=roomSuggestion()></div><br id="buildingInputBreak">
+            <div class="formDiv"><label for="roomInput" id="roomInputLabel">Room: </label>               <input type="text" class="searchFormInput" id="roomInput" name="roomInput" list="roomList"></div><br id="roomInputBreak">
+            <div class="formDiv"><label for="floorInput" id="floorInputLabel">Floor: </label>            <input type="text" class="searchFormInput" id="floorInput" name="floorInput"></div><br id="floorInputBreak">
+            <div class="formDiv"><label for="faultIdInput" id="faultIdInputLabel">Fault ID: </label>     <input type="text" class="searchFormInput" id="faultIdInput" name="faultIdInput"></div><br id="faultIdInputBreak">
+            <div class="formDiv"><label for="statusInput" id="statusInputLabel">Status: </label>         <input type="text" class="searchFormInput" id="statusInput" name="statusInput" list="statusList"></div><br id="statusInputBreak">
+            <div class="formDiv"><label for="typeInput" id="typeInputLabel">Type: </label>               <input type="text" class="searchFormInput" id="typeInput" name="typeInput" list="typeList"></div><br id="typeInputBreak">
+            <div class="formDiv"><label for="dateInput" id="dateInputLabel">Date: </label>               <input type="date" class="searchFormInput" id="dateInput" name="dateInput"></div><br id="dateInputBreak">
             <br>
             <button id="searchButton">Search</button><button id="clearButton" onclick=clearSearchForm()>Clear</button>
         </form>
@@ -29,6 +29,7 @@
 
     <!-- Main Window / Results Controls -->
     <div class="mainWindow">
+        <span><h2>Results: </h2></span><br><br>
         <table>
             <tr id="1listing" class="listing">
                 <td class="imgTd"><img src="resources/chairbroke.jpg" alt="broken chair"></td>
@@ -131,7 +132,7 @@
 
                 <br><br>
                 <button onclick="editJob()">Submit</button>
-                <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                <button type="button" class="btn cancel" onclick="closeEdit()">Cancel</button>
             </form>
         </div>
     </div>
