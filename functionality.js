@@ -38,7 +38,7 @@ function swapToAdmin() {
 }
 
 function searchDisplay(actorType) {
-  const inputs = document.getElementsByTagName("input");
+  const inputs = document.getElementsByClassName("searchFormInput");
   const buttons = document.getElementsByTagName("button");
   const actor = actors.at(actorType);
   Array.from(inputs).forEach(input => {
@@ -93,6 +93,10 @@ function editForm(index) {
     form.style.display = 'block';
     button.innerHTML = "Dismiss pop-up";
   }
+}
+function closeEdit() {
+  document.getElementById('editPopup').style.display = 'none';
+  document.getElementById(currentIndex + 'editButton').innerHTML = "Edit Job";
 }
 function editJob() {
   const inputArray = document.getElementsByClassName('editInput');
@@ -246,7 +250,13 @@ function displayEditDetails(details) {
   let elementArray = document.getElementsByClassName('editInput');
   let count = 1; // CURRENTLY IGNORING IMAGE
   Array.from(elementArray).forEach(function(element) {
-    element.value = details.at(count);
+    if (element.type === "date") {
+      date = new Date(details.at(count));
+      element.value = date.toISOString().split('T')[0];
+    }
+    else {
+      element.value = details.at(count);
+    }
     count++;
   });
 }
