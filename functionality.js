@@ -2,11 +2,10 @@ const NEWSCI = ['0.01', '0.02', '0.03', '0.04', '0.05', '0.06', '0.07', '0.08', 
 const TPSC = ['0.01', '0.02', '0.03', '0.04', '0.05', '0.06', '0.07', '0.08', '0.09'];
 const JSC = ['1.01', '1.02', '2.03', '2.06', '2.08'];
 
-const STAFF = ['floorInput', 'faultIdInput', 'assignButton', 'editButton', 'updateButton'];
-const STUDENT = ['floorInput', 'faultIdInput', 'assignButton', 'editButton', 'updateButton'];
+const STAFFSTUDENT = ['floorInput', 'faultIdInput', 'assignButton', 'editButton', 'updateButton'];
 const ENGINEER = ['editButton', 'assignButton'];
 const ADMIN = [];
-let actors = [STAFF, STUDENT, ENGINEER, ADMIN];
+let actors = [STAFFSTUDENT, ENGINEER, ADMIN];
 let currentActor = 0;
 
 let currentIndex = 0;
@@ -18,12 +17,12 @@ function swapToStudent() {
 }
 
 function swapToEngineer() {
-  currentActor = 2;
+  currentActor = 1;
   searchDisplay(currentActor);
 }
 
 function swapToAdmin() {
-  currentActor = 3;
+  currentActor = 2;
   searchDisplay(currentActor);
 }
 
@@ -163,6 +162,7 @@ function editJob() {
       }
     })
   })
+  closePopups();
 }
 
 function assignForm(index) {
@@ -178,12 +178,12 @@ function assignForm(index) {
   else {
     closePopups();
   }
-
 }
 function assignJob() {
   const input = document.getElementById('assignField');
   const output = document.getElementById(currentIndex + 'assigned');
   output.innerHTML = input.value;
+  closePopups();
 }
 
 function updateForm(index) {
@@ -204,6 +204,7 @@ function updateJob() {
   const input = document.getElementById('updateField');
   const output = document.getElementById(currentIndex + 'updates');
   output.innerHTML = output.innerHTML + "<br>" + new Date().toLocaleDateString() + ": " + input.value;
+  closePopups();
 }
 
 
@@ -345,3 +346,14 @@ function popUpHover(){
     }, false);
 }
 
+function searchOpen() {
+  var form = document.getElementById("searchForm");
+
+  if (form.style.display === "none" || !form.style.display) {
+    form.style.display="block";
+  }
+  else {
+    form.style.display="none";
+  }
+
+}
