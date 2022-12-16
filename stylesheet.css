@@ -2,13 +2,12 @@ body {
   font-family: "Courier New", monospace;
 }
 
-/*FaultSearch*/
 .searchBar {
   margin: auto;
   height: 100%;
   width: 17%;
-  position: fixed; /* prevents scrolling */
-  z-index: 1; /* keeps forward */
+  position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   background-color: #25669E;
@@ -122,7 +121,7 @@ input[type=range] {
   display: inline-block;
   height: 100%;
   width: 80%;
-  z-index: 1; /* keeps forward */
+  z-index: 1;
   right: 0;
   float: right;
   background-color: #ffffff;
@@ -388,16 +387,13 @@ textarea#text-area,
   cursor: pointer;
 }
 
-
-/* When the inputs get focus, do something */
-.form-container input[type=text]:focus,
 .form-container input[type=date]:focus,
+.form-container input[type=text]:focus,
 .form-container input[type=time]:focus {
   background-color: #ddd;
   outline: none;
 }
 
-/* Set a style for the submit/login button */
 .form-container .btn,
 .popup .btn{
   border-radius: 5px;
@@ -437,12 +433,10 @@ textarea#text-area,
   font-size: 20px;
 }
 
-/* Add a red background color to the cancel button */
 .form-container .cancel {
   background-color: red;
 }
 
-/* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
